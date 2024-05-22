@@ -1,4 +1,4 @@
-import NavBar from "./NavBar";
+import NavBar from "@/components/header/NavBar";
 
 const Header: React.FC = () => {
 

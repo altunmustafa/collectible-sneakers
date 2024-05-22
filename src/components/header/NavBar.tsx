@@ -1,5 +1,5 @@
 "use client";
-import NavItem from "@/components/NavItem";
+import NavItem from "@/components/header/NavItem";
 import navItems from "@/data/navItems";
 import { useState } from "react";
 import { Bars3Icon } from "@heroicons/react/24/outline";
