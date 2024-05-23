@@ -62,6 +62,7 @@ const ButtonOfSectionText: React.FC<IButtonOfSectionTextProps> = ({ style = "out
 }
 
 interface ISectionTextProps {
+  className?: string
   aligment?: "left" | "right" | "center"
   caption?: string
   headline1?: string
@@ -70,9 +71,9 @@ interface ISectionTextProps {
   buttons?: IButtonOfSectionTextProps[]
 }
 
-const SectionText: React.FC<ISectionTextProps> = ({ aligment = "left", caption, headline1, headline2, text, buttons }) => {
+const SectionText: React.FC<ISectionTextProps> = ({ className, aligment = "left", caption, headline1, headline2, text, buttons }) => {
   return (
-    <div className="flex flex-col gap-8">
+    <div className={`flex flex-col gap-8 ${className}`}>
       {/* Top */}
       <div>
         {caption &&
