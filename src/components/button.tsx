@@ -18,7 +18,8 @@ const Button: React.FC<IButtonProps> = ({ parentTheme = "light", style = "outlin
     buttonClassName += " bg-amber-900 border-2 border-amber-900";
     textClassName += " text-white";
   } else if (style == "outline") {
-    buttonClassName += ` border-2 ${parentTheme == "light" ? "border-slate-900" : "white"}`;
+    buttonClassName += ` border-2 ${parentTheme == "light" ? "border-amber-900" : "white"}`;
+    textClassName += ` ${parentTheme == "light" ? "text-amber-900" : "white"}`;
   } else if (style == "disabled") {
     buttonClassName += " bg-slate-300 border-2 border-slate-300";
     textClassName += " text-white";

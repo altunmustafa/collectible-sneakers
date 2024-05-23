@@ -34,10 +34,10 @@ const ContentBox: React.FC<IContentBoxProps> = ({ density = "normal", image, ico
   }
 
   return (
-    <div className={`flex flex-col overflow-hidden w-full h-fit rounded-[10px] ${shadow ? "shadow-2xl shadow-[rgba(255,255,255,0.25)]" : ""} ${border ? "border border-slate-900" : ""}`}>
+    <div className={`flex flex-col overflow-hidden w-full h-fit rounded-[10px] text-center md:text-left ${shadow ? "shadow-[0_25px_50px_-12px_rgba(255,255,255,0.25),_0_0_15px_0_rgba(255,255,255,0.07)]" : ""} ${border ? "border border-slate-900" : ""}`}>
       {/* Image */}
       {image &&
-        <Image src={image} alt="image" className="w-full h-auto"/>
+        <Image src={image} alt="image" className="w-full h-auto" />
       }
       {/* Content */}
       <div className={`flex flex-col gap-4 w-full ${contentClassName}`}>
