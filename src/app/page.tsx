@@ -1,4 +1,5 @@
 import HeroSection from "@/components/landing-sections/hero-section";
+import ProductsSection from "@/components/landing-sections/products-section";
 import ServicesSection from "@/components/landing-sections/services-section";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <main className="flex flex-col min-h-screen items-center">
       <HeroSection />
       <ServicesSection />
+      <ProductsSection />
     </main>
   );
 }

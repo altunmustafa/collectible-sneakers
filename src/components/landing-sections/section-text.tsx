@@ -62,54 +62,60 @@ const ButtonOfSectionText: React.FC<IButtonOfSectionTextProps> = ({ style = "out
 }
 
 interface ISectionTextProps {
-  className?: string
+  colorTheme?: "light" | "dark"
   aligment?: "left" | "right" | "center"
   caption?: string
   headline1?: string
   headline2?: string
   text?: string
   buttons?: IButtonOfSectionTextProps[]
+  className?: string
 }
 
-const SectionText: React.FC<ISectionTextProps> = ({ className, aligment = "left", caption, headline1, headline2, text, buttons }) => {
+const SectionText: React.FC<ISectionTextProps> = ({ colorTheme = "light", aligment = "left", caption, headline1, headline2, text, buttons, className = "", }) => {
+  const primaryColor = colorTheme == "light" ? "text-slate-900" : "text-white";
+  const secondaryColor = colorTheme == "light" ? "text-slate-600" : "text-white";
+
   return (
-    <div className={`flex flex-col gap-8 ${className}`}>
+    <div className={`flex flex-col gap-8 w-full ${className}`}>
       {/* Top */}
       <div>
         {caption &&
-          <div className="text-xl font-bold text-slate-600 tracking-widest ">
+          <div className={`text-xl font-bold tracking-widest ${secondaryColor}}`}>
             {caption}
           </div>
         }
         {headline1 &&
-          <div className="text-7xl font-extrabold text-slate-900">
+          <div className={`text-7xl font-extrabold ${primaryColor}`}>
             {headline1}
           </div>
         }
         {headline2 &&
-          <div className="text-5xl font-extrabold text-slate-900">
+          <div className={`text-[32px] md:text-[56px] leading-[110%] font-bold md:font-extrabold ${primaryColor}`}>
             {headline2}
           </div>
         }
       </div>
       {/* Paragraph */}
       {text &&
-        <div className="text-lg text-slate-900">
+        <div className={`text-lg ${primaryColor}`}>
           {text}
         </div>
       }
       {/* Buttons Group */}
-      <div className="flex gap-4">
-        {buttons && buttons.map((button) => (
-          <ButtonOfSectionText
-            style={button.style}
-            size={button.size}
-            text={button.text}
-            icon={button.icon}
-            iconPosition={button.iconPosition}
-          />
-        ))}
-      </div>
+      {buttons &&
+        <div className="flex gap-4">
+          {buttons.map((button) => (
+            <ButtonOfSectionText
+              style={button.style}
+              size={button.size}
+              text={button.text}
+              icon={button.icon}
+              iconPosition={button.iconPosition}
+            />
+          ))}
+        </div>
+      }
     </div>
   )
 }
