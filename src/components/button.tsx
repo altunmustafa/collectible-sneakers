@@ -1,3 +1,4 @@
+import { StaticImport } from "next/dist/shared/lib/get-img-props"
 import Image from "next/image"
 
 interface IButtonProps {
@@ -5,14 +6,15 @@ interface IButtonProps {
   style?: "filled" | "outline" | "disabled" | "link" | "danger"
   size?: "s" | "m" | "l" | "xl"
   text?: string
-  icon?: string
+  icon?: React.ReactNode
   iconPosition?: "left" | "right"
+  onClick?: () => void
   className?: string
 }
 
-const Button: React.FC<IButtonProps> = ({ parentTheme = "light", style = "outline", size = "m", text, icon, iconPosition = "left", className = "" }) => {
-  var buttonClassName = "";
-  var textClassName = "";
+const Button: React.FC<IButtonProps> = ({ parentTheme = "light", style = "outline", size = "m", text, icon, iconPosition = "left", onClick, className = "" }) => {
+  let buttonClassName = "";
+  let textClassName = "";
 
   if (style == "filled") {
     buttonClassName += " bg-amber-900 border-2 border-amber-900";
@@ -47,18 +49,20 @@ const Button: React.FC<IButtonProps> = ({ parentTheme = "light", style = "outlin
 
 
   return (
-    <button className={`flex justify-center w-fit h-fit text-base rounded-lg ${buttonClassName} ${className}`}>
-      <div className="flex px-4 gap-2">
-        {icon &&
-          <Image src={icon} alt="icon" />
-        }
-        {text &&
-          <div className={`tracking-[0.5px] leading-[24px] whitespace-nowrap ${textClassName}`}>
-            {text}
-          </div>
-        }
-      </div>
-    </button>
+    <button
+      className={`flex justify-center w-fit h-fit text-base rounded-lg ${buttonClassName} ${className}`}
+      onClick={onClick}
+    >
+      {/* <div className="flex px-4 gap-2"> */}
+      {icon}
+      {
+        text &&
+        <div className={`tracking-[0.5px] leading-[24px] whitespace-nowrap ${textClassName}`}>
+          {text}
+        </div>
+      }
+      {/* </div> */}
+    </button >
   )
 }
 

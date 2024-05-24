@@ -2,6 +2,7 @@ import HeroSection from "@/components/landing-sections/hero-section";
 import JoinUsSection from "@/components/landing-sections/join-us-section";
 import ProductsSection from "@/components/landing-sections/products-section";
 import ServicesSection from "@/components/landing-sections/services-section";
+import UserCommentsSection from "@/components/landing-sections/user-comments-section";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <ServicesSection />
       <ProductsSection />
       <JoinUsSection />
+      <UserCommentsSection />
     </main>
   );
 }

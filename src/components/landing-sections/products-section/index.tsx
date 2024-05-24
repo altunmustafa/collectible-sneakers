@@ -4,7 +4,8 @@ import ContentBox from "../services-section/content-box";
 import product1 from "/public/images/product1.png"
 import product2 from "/public/images/product2.png"
 import product3 from "/public/images/product3.png"
-import shoppingCart from "/public/icons/shopping-cart.svg"
+import ShoppingCartSvg from "@/assets/vectors/shopping-cart-svg";
+import Image from "next/image";
 
 interface IProductsSectionProps {
 }
@@ -22,28 +23,28 @@ const ProductsSection: React.FC<IProductsSectionProps> = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 p-0 w-full" >
         <ContentBox
           density="comfortable"
-          image={product1}
+          image={<Image src={product1} alt="product image" />}
           title="Title"
           text="Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse."
-          buttons={[{ parentTheme: "dark", text: "Buy Now", style: "outline", size: "l", icon: shoppingCart, iconPosition: "left" }]}
+          buttons={[{ parentTheme: "dark", text: "Buy Now", style: "outline", size: "l", icon: <ShoppingCartSvg />, iconPosition: "left" }]}
           border
           shadow
         />
         <ContentBox
           density="comfortable"
-          image={product2}
+          image={<Image src={product2} alt="product image" />}
           title="Title"
           text="Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse."
-          buttons={[{ parentTheme: "dark", text: "Buy Now", style: "outline", size: "l", icon: shoppingCart, iconPosition: "left" }]}
+          buttons={[{ parentTheme: "dark", text: "Buy Now", style: "outline", size: "l", icon: <ShoppingCartSvg />, iconPosition: "left" }]}
           border
           shadow
         />
         <ContentBox
           density="comfortable"
-          image={product3}
+          image={<Image src={product3} alt="product image" />}
           title="Title"
           text="Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse."
-          buttons={[{ parentTheme: "dark", text: "Buy Now", style: "outline", size: "l", icon: shoppingCart, iconPosition: "left" }]}
+          buttons={[{ parentTheme: "dark", text: "Buy Now", style: "outline", size: "l", icon: <ShoppingCartSvg />, iconPosition: "left" }]}
           border
           shadow
         />

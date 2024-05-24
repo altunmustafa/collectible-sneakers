@@ -1,7 +1,7 @@
 import Image from "next/image";
 import SectionText from "../section-text";
 import pexelsPhotoByRayPiedra from "/public/images/pexelsPhotoByRayPiedra.png"
-import playCircle from "/public/icons/play-circle.svg"
+import PlayCircleSvg from "@/assets/vectors/play-circle-svg";
 
 const HeroSection: React.FC = () => {
 
@@ -17,7 +17,7 @@ const HeroSection: React.FC = () => {
           text="Sit elit feugiat turpis sed integer integer accumsan turpis. Sed suspendisse nec lorem mauris. Pharetra, eu imperdiet ipsum ultrices amet."
           buttons={[
             { text: "Sign up now", style: "outline", size: "m" },
-            { text: "Watch Demo", style: "link", size: "m", icon: playCircle },
+            { text: "Watch Demo", style: "link", size: "m", icon: < PlayCircleSvg /> },
           ]}
         />
       </div>

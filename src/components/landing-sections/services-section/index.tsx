@@ -3,6 +3,7 @@ import ContentBox from "./content-box";
 import tunnel from "/public/icons/tunnel.svg"
 import trophy from "/public/icons/trophy.svg"
 import tv from "/public/icons/tv.svg"
+import Image from "next/image";
 
 const ServicesSection: React.FC = () => {
 
@@ -14,7 +15,7 @@ const ServicesSection: React.FC = () => {
         {/* Group */}
         <div className="flex flex-col gap-[10px] w-full h-fit">
           <ContentBox
-            icon={trophy}
+            icon={<Image src={trophy} alt="trophy" />}
             // category="Category"
             title="Nibh viverra"
             text="Sit bibendum donec dolor fames neque vulputate non sit aliquam. Consequat turpis natoque leo, massa. "
@@ -23,7 +24,7 @@ const ServicesSection: React.FC = () => {
         {/* Group */}
         <div className="flex flex-col gap-[10px] w-full h-fit">
           <ContentBox
-            icon={tunnel}
+            icon={<Image src={tunnel} alt="trophy" />}
             // category="Category"
             title="Cursus amet"
             text="Sit bibendum donec dolor fames neque vulputate non sit aliquam. Consequat turpis natoque leo, massa. "
@@ -32,7 +33,7 @@ const ServicesSection: React.FC = () => {
         {/* Group */}
         <div className="flex flex-col gap-[10px] w-full h-fit">
           <ContentBox
-            icon={tv}
+            icon={<Image src={tv} alt="trophy" />}
             // category="Category"
             title="Ipsum fermentum"
             text="Sit bibendum donec dolor fames neque vulputate non sit aliquam. Consequat turpis natoque leo, massa. "

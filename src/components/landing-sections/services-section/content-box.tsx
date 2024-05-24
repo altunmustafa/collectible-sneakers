@@ -2,28 +2,38 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import Button from "@/components/button";
 import { ComponentProps } from "react";
+import UserCard from "@/components/user-card";
+
+interface IAuthor {
+  name: string
+  role?: string
+  avatar?: StaticImport | string
+}
 
 interface IContentBoxProps {
-  density?: "compact" | "normal" | "comfortable"
-  image?: string | StaticImport
+  density?: "compact" | "normal" | "comfortable" | "x-comfortable"
+  image?: React.ReactNode
   // imageBadge?: string
   // imageThumb?: string | StaticImport
-  icon?: string | StaticImport
+  icon?: React.ReactNode
   category?: string
   title?: string
   // TODO: Add Badge component
   titleBadge?: string
-  titleIcon?: string | StaticImport
-  imageUnderTitle?: string | StaticImport
+  titleIcon?: React.ReactNode
+  imageUnderTitle?: React.ReactNode
   text?: string
-  // author?: IAuthor
+  author?: IAuthor
   buttons?: ComponentProps<typeof Button>[]
   border?: boolean
   shadow?: boolean
+  textSize?: "s" | "m" | "l"
+  className?: string
 }
 
-const ContentBox: React.FC<IContentBoxProps> = ({ density = "normal", image, icon, category, title, titleBadge, titleIcon, imageUnderTitle, text, buttons, border, shadow }) => {
-  var contentClassName = "";
+const ContentBox: React.FC<IContentBoxProps> = ({ density = "normal", image, icon, category, title, titleBadge, titleIcon, imageUnderTitle, text, author, buttons, border, shadow, textSize = "m", className = "" }) => {
+  let contentClassName = "";
+  let textClassName = "";
 
   if (density == "compact") {
     contentClassName += " p-0";
@@ -31,20 +41,28 @@ const ContentBox: React.FC<IContentBoxProps> = ({ density = "normal", image, ico
     contentClassName += " px-4 pt-4";
   } else if (density == "comfortable") {
     contentClassName += " px-8 pt-8";
+  } else if (density == "x-comfortable") {
+    contentClassName += " p-8";
+  }
+
+  if (textSize == "s") {
+    textClassName += " text-md";
+  } else if (textSize == "m") {
+    textClassName += " text-lg";
+  } else if (textSize == "l") {
+    textClassName += " text-2xl";
   }
 
   return (
-    <div className={`flex flex-col overflow-hidden w-full h-fit rounded-[10px] text-center md:text-left ${shadow ? "shadow-[0_25px_50px_-12px_rgba(255,255,255,0.25),_0_0_15px_0_rgba(255,255,255,0.07)]" : ""} ${border ? "border border-slate-900" : ""}`}>
+    <div className={`flex flex-col overflow-hidden w-full h-fit rounded-[10px] text-center md:text-left ${shadow ? "shadow-[0_25px_50px_-12px_rgba(255,255,255,0.25),_0_0_15px_0_rgba(255,255,255,0.07)]" : ""} ${border ? "border border-slate-900" : ""} ${className}`}>
       {/* Image */}
-      {image &&
-        <Image src={image} alt="image" className="w-full h-auto" />
-      }
+      {image}
       {/* Content */}
       <div className={`flex flex-col gap-4 w-full ${contentClassName}`}>
         {/* Icon */}
         {icon &&
           <div className="flex justify-center md:justify-start w-full h-fit">
-            <Image src={icon} alt="icon" />
+            {icon}
           </div>
         }
         {/* Title + Category */}
@@ -68,19 +86,28 @@ const ContentBox: React.FC<IContentBoxProps> = ({ density = "normal", image, ico
             }
             {titleIcon &&
               <div>
-                <Image src={titleIcon} alt="title icon" width={24} height={24} />
+                {titleIcon}
               </div>
             }
           </div>
           {imageUnderTitle &&
             <div className="w-full h-[220px]">
-              <Image src={imageUnderTitle} alt="image under title" fill />
+              {imageUnderTitle}
             </div>
           }
           {text &&
-            <div className="text-lg">
+            <div className={`${textClassName} leading-[160%]`}>
               {text}
             </div>
+          }
+          {author &&
+            <UserCard
+              name={author.name}
+              role={author.role}
+              avatar={author.avatar ? <Image src={author.avatar} alt={author.name} /> : undefined}
+              size="m"
+              layout="horizontal"
+            />
           }
         </div>
       </div>
