@@ -67,7 +67,7 @@ const ContentBox: React.FC<IContentBoxProps> = ({ density = "normal", image, ico
   }
 
   return (
-    <div className={`flex flex-col overflow-hidden w-full h-fit rounded-[10px] text-center md:text-left ${shadow ? tailwindShadow : ""} ${border ? "border border-slate-900" : ""} ${className}`}>
+    <div className={`flex flex-col max-md:items-center overflow-hidden w-full h-fit rounded-[10px] text-center md:text-left ${shadow ? tailwindShadow : ""} ${border ? "border border-slate-900" : ""} ${className}`}>
       {/* Image */}
       {image}
       {/* Content */}
