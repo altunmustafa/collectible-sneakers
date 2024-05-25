@@ -23,17 +23,17 @@ const SectionText: React.FC<ISectionTextProps> = ({ colorTheme = "light", aligme
       {/* Top */}
       <div className="flex flex-col gap-2 ">
         {caption &&
-          <div className={`text-xl font-bold tracking-widest ${secondaryColor}}`}>
+          <div className={`text-[12px] mg:text-[16px] lg:text[20px] font-bold tracking-widest ${secondaryColor}}`}>
             {caption}
           </div>
         }
         {headline1 &&
-          <div className={`text-7xl font-extrabold ${primaryColor}`}>
+          <div className={`text-[56px] mg:text-[64px] lg:text[72px] font-extrabold leading-[110%] ${primaryColor}`}>
             {headline1}
           </div>
         }
         {headline2 &&
-          <div className={`text-[32px] md:text-[56px] leading-[110%] font-bold md:font-extrabold ${primaryColor}`}>
+          <div className={`text-[32px] md:text-[44px] lg:text-[56px] leading-[110%] font-bold md:font-extrabold ${primaryColor}`}>
             {headline2}
           </div>
         }
@@ -46,7 +46,7 @@ const SectionText: React.FC<ISectionTextProps> = ({ colorTheme = "light", aligme
       }
       {/* Buttons Group */}
       {buttons &&
-        <div className="flex gap-4">
+        <div className="flex gap-4 max-md:justify-center">
           {buttons.map((button) => (
             <Button
               style={button.style}

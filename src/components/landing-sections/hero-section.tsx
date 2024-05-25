@@ -6,14 +6,12 @@ import PlayCircleSvg from "@/assets/vectors/play-circle-svg";
 const HeroSection: React.FC = () => {
 
   return (
-    <section className="flex justify-center align-items-center gap-20 p-20 w-full">
-      {/* Col */}
+    <section className="relative flex flex-col md:flex-row justify-center items-center gap-8 md:gap-10 lg:gap-20 px-4 py-12 md:p-20 w-full">
+      {/* Col 1 */}
       <div className="flex flex-col gap-12">
         <SectionText
           aligment="left"
-          caption="CAPTION"
           headline1="Collectible Sneakers"
-          headline2="Headline Two"
           text="Sit elit feugiat turpis sed integer integer accumsan turpis. Sed suspendisse nec lorem mauris. Pharetra, eu imperdiet ipsum ultrices amet."
           buttons={[
             { text: "Sign up now", style: "outline", size: "m" },
@@ -22,14 +20,18 @@ const HeroSection: React.FC = () => {
         />
       </div>
 
-      {/* Col */}
-      <div className="flex flex-col gap-12">
+      {/* Col 2 */}
+      <div className="relative w-[361px] h-[314.2px] md:w-[423px] md:h-[368px] lg:w-[486px] lg:h-[423px] shrink-0">
         <Image
           src={pexelsPhotoByRayPiedra}
           alt="Pexels Photo by Ray Piedra"
-          className="grow aspect-[1.15] max-md:mt-10 max-md:max-w-full w-[361px] h-[288px] md:w-[486px] md:h-[348px] "
+          className="absolute z-10 w-[361px] h-[288.21px] md:w-[423px] md:h-[338px] lg:w-[486px] lg:h-[388px] object-contain object-left-top top-0 left-0"
         />
+        <div className="absolute w-[272.61px] h-[276.32px] md:w-[319px] md:h-[324px] lg:w-[367px] lg:h-[372px] bg-amber-400 rounded-[50px] object-left-bottom bottom-0 left-1/2 transform -translate-x-1/2"></div>
       </div>
+      <svg className="md:hidden absolute left-0 bottom-0 z-[-1] w-full h-[350px] fill-amber-100" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="100,5 2,100 100,100" />
+      </svg>
     </section>
   )
 }

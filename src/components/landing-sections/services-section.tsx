@@ -8,8 +8,8 @@ import Image from "next/image";
 const ServicesSection: React.FC = () => {
 
   return (
-    <section className="flex flex-col justify-center align-items-center gap-20 p-20 w-full text-slate-900">
-      <SectionText headline2="Expanding Services" className="max-md:hidden"></SectionText>
+    <section className="flex flex-col justify-center align-items-center gap-20 p-20 w-full text-slate-900 max-md:bg-amber-100">
+      {/* <SectionText headline2="Expanding Services" className="max-md:hidden"></SectionText> */}
       {/* Row */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-20 w-full">
         {/* Group */}
