@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SectionText from "../section-text";
+import SectionText from "@/components/section-text";
 import pexelsPhotoByRayPiedra from "/public/images/pexelsPhotoByRayPiedra.png"
 import PlayCircleSvg from "@/assets/vectors/play-circle-svg";
 

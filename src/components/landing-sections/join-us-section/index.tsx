@@ -1,7 +1,8 @@
 import Screen from "@/components/screen";
-import SectionText from "../section-text";
+import SectionText from "@/components/section-text";
 import List from "@/components/list";
 import Button from "@/components/button";
+import video_png from "/public/images/video.png"
 
 interface IJoinUsSectionProps {
 
@@ -37,8 +38,9 @@ const JoinUsSection: React.FC<IJoinUsSectionProps> = () => {
           <Button style="outline" text="Sign up now" size="l" />
         </div>
         {/* Screen/Desktop */}
-        <Screen />
-
+        <Screen image={video_png}
+          size="m"
+        />
       </div>
     </section>
   )

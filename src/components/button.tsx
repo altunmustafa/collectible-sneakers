@@ -8,26 +8,31 @@ interface IButtonProps {
   text?: string
   icon?: React.ReactNode
   iconPosition?: "left" | "right"
+  // TODO: both left and right icon positon
   onClick?: () => void
+  colors?: { primary?: string, secondary?: string }
   className?: string
 }
 
-const Button: React.FC<IButtonProps> = ({ parentTheme = "light", style = "outline", size = "m", text, icon, iconPosition = "left", onClick, className = "" }) => {
+const Button: React.FC<IButtonProps> = ({ parentTheme = "light", style = "outline", size = "m", text, icon, iconPosition = "left", onClick, colors, className = "" }) => {
   let buttonClassName = "";
   let textClassName = "";
 
+  const primaryColor = colors?.primary ? `${colors.primary}` : parentTheme == "light" ? "amber-900" : "white";
+  const secondaryColor = colors?.secondary ? `${colors.secondary}` : parentTheme == "light" ? "white" : "slate-900";
+
   if (style == "filled") {
-    buttonClassName += " bg-amber-900 border-2 border-amber-900";
-    textClassName += " text-white";
+    buttonClassName += ` bg-${primaryColor} border-2 border-${primaryColor} shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),_0_0_4px_0_rgba(0,0,0,0.07)]`;
+    textClassName += ` text-${secondaryColor}`;
   } else if (style == "outline") {
-    buttonClassName += ` border-2 ${parentTheme == "light" ? "border-amber-900" : "white"}`;
-    textClassName += ` ${parentTheme == "light" ? "text-amber-900" : "white"}`;
+    buttonClassName += ` border-2 border-${primaryColor}`;
+    textClassName += ` text-${primaryColor}`;
   } else if (style == "disabled") {
     buttonClassName += " bg-slate-300 border-2 border-slate-300";
     textClassName += " text-white";
   } else if (style == "link") {
     buttonClassName += "";
-    textClassName += " text-amber-900";
+    textClassName += ` text-${primaryColor}`;
   } else if (style == "danger") {
     buttonClassName += " bg-red-600 border-2 border-red-600";
     textClassName += " text-white";

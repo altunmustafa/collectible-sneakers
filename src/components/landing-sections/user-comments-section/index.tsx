@@ -1,10 +1,10 @@
 "use client";
 import { useRef } from "react";
 import Button from "@/components/button";
-import SectionText from "../section-text";
+import SectionText from "@/components/section-text";
 import LeftArrowSvg from "@/assets/vectors/left-arrow-svg";
 import RightArrowSvg from "@/assets/vectors/right-arrow-svg";
-import ContentBox from "../services-section/content-box";
+import ContentBox from "@/components/content-box";
 import Image from "next/image";
 import userComments from "@/data/userComments";
 // Swiper
@@ -61,50 +61,20 @@ const UserCommentsSection: React.FC<IUserCommentsSectionProps> = ({ className = 
         className='w-full py-4 select-none'
         slidesPerView="auto"
         // slidesPerView={3.5}
-        spaceBetween={20}
+        spaceBetween={25}
         modules={[FreeMode]}
         freeMode={true}
-      // breakpoints={{
-      //   320: {
-      //     // slidesPerView: 1,
-      //     spaceBetween: 5,
-      //   },
-      //   350: {
-      //     // slidesPerView: 1.3,
-      //     spaceBetween: 25,
-      //   },
-      //   440: {
-      //     // slidesPerView: 2,
-      //     spaceBetween: 100,
-      //   },
-      //   768: {
-      //     // slidesPerView: 2,
-      //     spaceBetween: 40,
-      //   },
-      //   1023: {
-      //     // slidesPerView: 2.5,
-      //     spaceBetween: 100,
-      //   },
-      //   1279: {
-      //     // slidesPerView: 3.7,
-      //     spaceBetween: 50,
-      //   },
-      //   1600: {
-      //     // slidesPerView: 5,
-      //     spaceBetween: 120,
-      //   }
-
-      // }}
       >
         {userComments.map((comment, index) => (
-          <SwiperSlide key={index} className="!w-96 flex-shrink-0">
+          <SwiperSlide key={index} className="!w-96 flex-shrink-0 py-5 z-10">
             <ContentBox
-              className="bg-white !rounded-[20px]"
+              className="bg-white !rounded-[20px] "
               icon={<Image src={comment.icon} alt="brand logo" />}
               text={comment.text}
               author={comment.user}
               density="x-comfortable"
               textSize="l"
+              shadow
             />
           </SwiperSlide>
         ))}

@@ -19,9 +19,9 @@ const SectionText: React.FC<ISectionTextProps> = ({ colorTheme = "light", aligme
   const secondaryColor = colorTheme == "light" ? "text-slate-600" : "text-white";
 
   return (
-    <div className={`flex flex-col gap-8 w-full text-center md:text-left ${className}`}>
+    <div className={`flex flex-col gap-8 w-full ${aligment == "left" ? "text-center md:text-left" : aligment == "right" ? "text-center md:text-right" : "text-center"} ${className}`}>
       {/* Top */}
-      <div>
+      <div className="flex flex-col gap-2 ">
         {caption &&
           <div className={`text-xl font-bold tracking-widest ${secondaryColor}}`}>
             {caption}
@@ -40,7 +40,7 @@ const SectionText: React.FC<ISectionTextProps> = ({ colorTheme = "light", aligme
       </div>
       {/* Paragraph */}
       {text &&
-        <div className={`text-lg ${primaryColor}`}>
+        <div className={`text-lg leading-[160%] ${primaryColor}`}>
           {text}
         </div>
       }

@@ -1,5 +1,4 @@
 import { StaticImport } from "next/dist/shared/lib/get-img-props"
-import video_png from "/public/images/video.png"
 import Image from "next/image"
 
 interface IScreenProps {
@@ -7,12 +6,31 @@ interface IScreenProps {
   addressBar?: boolean
   arrows?: boolean
   image?: string | StaticImport
+  size?: "s" | "m" | "l"
+  // If sizeWithTailwind is provided, the size prop will be ignored.
+  sizeWithTailwind?: string
 }
 
-const Screen: React.FC<IScreenProps> = () => {
+const Screen: React.FC<IScreenProps> = ({ circles = true, addressBar = true, arrows = true, image, size = "m", sizeWithTailwind }) => {
+  let sizeClassName = sizeWithTailwind;
+
+  if (!sizeClassName) {
+    switch (size) {
+      case "s":
+        sizeClassName = "w-full h-[126px] md:w-full md:h-[200px]"; // not used
+        break;
+      case "m":
+        sizeClassName = "aspect-[520/350] w-[329px] md:w-[425px] lg:w-[520px]";
+        break;
+      case "l":
+        sizeClassName = "aspect-[759/451] w-[294px] md:w-[526px] lg:w-[759px]";
+        break;
+    }
+  }
 
   return (
-    <div className="flex flex-col items-center bg-white rounded-[20px] overflow-hidden border-[5px] border-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),_0_0_15px_0_rgba(0,0,0,0.07)] ">
+    <div
+      className={`flex flex-col items-center bg-white rounded-[20px] overflow-hidden border-[5px] border-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),_0_0_15px_0_rgba(0,0,0,0.07)] ${sizeClassName}`} >
       {/* Top Bar */}
       <div className="flex justify-between items-center w-full h-[41px] px-4 py-2 gap-7" >
         {/* Circles */}
@@ -49,8 +67,16 @@ const Screen: React.FC<IScreenProps> = () => {
       </div>
 
       {/* Video */}
-      <div className="flex justify-center items-center gap-[10px]">
-        <Image src={video_png} alt="video play" />
+      <div className="relative flex w-full h-full justify-center items-center gap-[10px]">
+        {image &&
+          <Image src={image}
+            alt="video play"
+            // width={"520"}
+            // height={350}
+            layout="fill"
+            objectFit="cover"
+          />
+        }
       </div>
 
     </div >

@@ -1,5 +1,5 @@
-import SectionText from "../section-text";
-import ContentBox from "./content-box";
+import SectionText from "@/components/section-text";
+import ContentBox from "@/components/content-box";
 import tunnel from "/public/icons/tunnel.svg"
 import trophy from "/public/icons/trophy.svg"
 import tv from "/public/icons/tv.svg"

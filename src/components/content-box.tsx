@@ -28,10 +28,11 @@ interface IContentBoxProps {
   border?: boolean
   shadow?: boolean
   textSize?: "s" | "m" | "l"
+  colors?: { theme?: string, primary?: string, secondary?: string }
   className?: string
 }
 
-const ContentBox: React.FC<IContentBoxProps> = ({ density = "normal", image, icon, category, title, titleBadge, titleIcon, imageUnderTitle, text, author, buttons, border, shadow, textSize = "m", className = "" }) => {
+const ContentBox: React.FC<IContentBoxProps> = ({ density = "normal", image, icon, category, title, titleBadge, titleIcon, imageUnderTitle, text, author, buttons, border, shadow, textSize = "m", colors = { theme: "light" }, className = "" }) => {
   let contentClassName = "";
   let textClassName = "";
 
@@ -53,8 +54,20 @@ const ContentBox: React.FC<IContentBoxProps> = ({ density = "normal", image, ico
     textClassName += " text-2xl";
   }
 
+  let tailwindShadow = "";
+  if (colors?.theme) {
+    switch (colors.theme) {
+      case "light":
+        tailwindShadow = "shadow-[0_10px_15px_-3px_rgba(0,0,0,0.10),_0_0_6px_0_rgba(0,0,0,0.07)]";
+        break;
+      case "dark":
+        tailwindShadow = "shadow-[0_25px_50px_-12px_rgba(255,255,255,0.25),_0_0_15px_0_rgba(255,255,255,0.07)]";
+        break;
+    }
+  }
+
   return (
-    <div className={`flex flex-col overflow-hidden w-full h-fit rounded-[10px] text-center md:text-left ${shadow ? "shadow-[0_25px_50px_-12px_rgba(255,255,255,0.25),_0_0_15px_0_rgba(255,255,255,0.07)]" : ""} ${border ? "border border-slate-900" : ""} ${className}`}>
+    <div className={`flex flex-col overflow-hidden w-full h-fit rounded-[10px] text-center md:text-left ${shadow ? tailwindShadow : ""} ${border ? "border border-slate-900" : ""} ${className}`}>
       {/* Image */}
       {image}
       {/* Content */}

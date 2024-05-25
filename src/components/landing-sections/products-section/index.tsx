@@ -1,11 +1,10 @@
 import Button from "@/components/button";
-import SectionText from "../section-text";
-import ContentBox from "../services-section/content-box";
-import product1 from "/public/images/product1.png"
-import product2 from "/public/images/product2.png"
-import product3 from "/public/images/product3.png"
+import SectionText from "@/components/section-text";
+import ContentBox from "@/components/content-box";
 import ShoppingCartSvg from "@/assets/vectors/shopping-cart-svg";
 import Image from "next/image";
+
+import products from "@/data/products";
 
 interface IProductsSectionProps {
 }
@@ -21,33 +20,19 @@ const ProductsSection: React.FC<IProductsSectionProps> = () => {
       </div>
       {/* Row */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 p-0 w-full" >
-        <ContentBox
-          density="comfortable"
-          image={<Image src={product1} alt="product image" />}
-          title="Title"
-          text="Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse."
-          buttons={[{ parentTheme: "dark", text: "Buy Now", style: "outline", size: "l", icon: <ShoppingCartSvg />, iconPosition: "left" }]}
-          border
-          shadow
-        />
-        <ContentBox
-          density="comfortable"
-          image={<Image src={product2} alt="product image" />}
-          title="Title"
-          text="Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse."
-          buttons={[{ parentTheme: "dark", text: "Buy Now", style: "outline", size: "l", icon: <ShoppingCartSvg />, iconPosition: "left" }]}
-          border
-          shadow
-        />
-        <ContentBox
-          density="comfortable"
-          image={<Image src={product3} alt="product image" />}
-          title="Title"
-          text="Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse."
-          buttons={[{ parentTheme: "dark", text: "Buy Now", style: "outline", size: "l", icon: <ShoppingCartSvg />, iconPosition: "left" }]}
-          border
-          shadow
-        />
+        {products.map((product, index) => (
+          <ContentBox
+            key={index}
+            density="comfortable"
+            image={<Image src={product.image} alt="product image" />}
+            title={product.title}
+            text={product.text}
+            buttons={[{ parentTheme: "dark", text: "Buy Now", style: "outline", size: "l", icon: <ShoppingCartSvg />, iconPosition: "left" }]}
+            border
+            shadow
+            colors={{ theme: "dark" }}
+          />
+        ))}
       </div>
     </section>
   )
