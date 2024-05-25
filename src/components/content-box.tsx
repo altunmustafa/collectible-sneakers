@@ -55,6 +55,7 @@ const ContentBox: React.FC<IContentBoxProps> = ({ density = "normal", image, ico
   }
 
   let tailwindShadow = "";
+  let tailwindBg = "";
   if (colors?.theme) {
     switch (colors.theme) {
       case "light":
@@ -62,12 +63,13 @@ const ContentBox: React.FC<IContentBoxProps> = ({ density = "normal", image, ico
         break;
       case "dark":
         tailwindShadow = "shadow-[0_25px_50px_-12px_rgba(255,255,255,0.25),_0_0_15px_0_rgba(255,255,255,0.07)]";
+        tailwindBg = "bg-slate-900";
         break;
     }
   }
 
   return (
-    <div className={`flex flex-col max-md:items-center overflow-hidden w-full h-fit rounded-[10px] text-center md:text-left ${shadow ? tailwindShadow : ""} ${border ? "border border-slate-900" : ""} ${className}`}>
+    <div className={`flex flex-col max-md:items-center overflow-hidden w-full h-fit rounded-[10px] text-center md:text-left ${shadow ? tailwindShadow : ""} ${border ? "border border-slate-900" : ""} ${tailwindBg} ${className}`}>
       {/* Image */}
       {image}
       {/* Content */}
