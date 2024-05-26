@@ -52,8 +52,8 @@ const SectionText: React.FC<ISectionTextProps> = ({ colorTheme = "light", aligme
               style={button.style}
               size={button.size}
               text={button.text}
-              icon={button.icon}
-              iconPosition={button.iconPosition}
+              leftIcon={button.leftIcon}
+              rightIcon={button.rightIcon}
             />
           ))}
         </div>

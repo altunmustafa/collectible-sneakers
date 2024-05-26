@@ -22,7 +22,7 @@ const WordMapSection: React.FC = () => {
       <SectionText className="z-10"
         aligment="center"
         headline1="11,658,467"
-        headline2="World Map"
+        headline2="Shoes Collected"
         colorTheme="dark"
       />
       {/* Col */}

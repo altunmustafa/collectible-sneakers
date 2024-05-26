@@ -1,8 +1,8 @@
 import Button from "@/components/button";
 import SectionText from "@/components/section-text";
 import ContentBox from "@/components/content-box";
-import ShoppingCartSvg from "@/assets/vectors/shopping-cart-svg";
 import Image from "next/image";
+import shopping_cart_svg from "/public/vectors/shopping-cart.svg"
 
 import products from "@/data/products";
 
@@ -49,10 +49,10 @@ const ProductsSection: React.FC = () => {
           <ContentBox
             key={index}
             density="comfortable"
-            image={<Image src={product.image} alt="product image" />}
+            image={<Image className="object-fill object-center w-full" src={product.image} alt="product image" />}
             title={product.title}
             text={product.text}
-            buttons={[{ parentTheme: "dark", text: "Buy Now", style: "outline", size: "l", icon: <ShoppingCartSvg />, iconPosition: "left" }]}
+            buttons={[{ parentTheme: "dark", text: "Buy Now", style: "outline", size: "l", leftIcon: shopping_cart_svg }]}
             border
             shadow
             colors={{ theme: "dark" }}

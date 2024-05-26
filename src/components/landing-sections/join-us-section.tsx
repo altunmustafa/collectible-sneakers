@@ -14,7 +14,7 @@ interface IJoinUsSectionProps {
 const JoinUsSection: React.FC<IJoinUsSectionProps> = () => {
 
   return (
-    <section className="flex flex-col max-md:items-center px-4 pt-4 pb-14 gap-0 md:px-20 md:py-40 md:gap-20 w-full">
+    <section className="flex flex-col max-md:items-center px-4 pt-4 pb-14 gap-0 md:px-20 md:py-40 md:gap-20 w-full overflow-hidden">
       {/* Container */}
       <div className="flex items-center justify-between z-[-2] max-lg:flex-col gap-8 md:gap-20 px-4 py-8 md:p-20 rounded-[30px] overflow-hidden bg-white shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1),_0_0_10px_0_rgba(0,0,0,0.07)]">
         {/* Col */}

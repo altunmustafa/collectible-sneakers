@@ -14,7 +14,7 @@ const FooterLink: React.FC<IFooterLinkProps> = ({ text, path, isBold = false, Ic
   // const Icon = item.icon;
 
   return (
-    <div className={`flex items-center gap-2 py-3 ${className}`}>
+    <div className={`flex items-center max-md:justify-center gap-2 py-3 ${className}`}>
       {Icon && showIcon && <Icon className="w-6 h-6" />}
       <button className={`justify-center ${isBold ? "font-bold" : ""}`}>
         {text}

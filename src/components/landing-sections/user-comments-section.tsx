@@ -2,8 +2,8 @@
 import { useRef } from "react";
 import Button from "@/components/button";
 import SectionText from "@/components/section-text";
-import LeftArrowSvg from "@/assets/vectors/left-arrow-svg";
-import RightArrowSvg from "@/assets/vectors/right-arrow-svg";
+import left_arrow_svg from "/public/vectors/left-arrow.svg"
+import right_arrow_svg from "/public/vectors/right-arrow.svg"
 import ContentBox from "@/components/content-box";
 import Image from "next/image";
 import userComments from "@/data/userComments";
@@ -29,7 +29,7 @@ const UserCommentsSection: React.FC<IUserCommentsSectionProps> = ({ className = 
   };
 
   return (
-    <section className="flex flex-col w-full gap-8 md:gap-20 px-4 py-12 md:p-20 justify-center items-start ">
+    <section className="relative flex flex-col w-full gap-8 md:gap-20 px-4 py-12 md:p-20 justify-center items-start overflow-clip">
       {/* Row */}
       <div className="w-full md:flex md:items-center md:gap-12">
         <SectionText headline2="Because they love us" />
@@ -38,27 +38,23 @@ const UserCommentsSection: React.FC<IUserCommentsSectionProps> = ({ className = 
           <Button
             style="outline"
             size="m"
-            icon={<LeftArrowSvg />}
+            leftIcon={left_arrow_svg}
             className="!rounded-full"
             onClick={onClickPrev}
           />
           <Button
             style="outline"
             size="m"
-            icon={<RightArrowSvg />}
+            leftIcon={right_arrow_svg}
             className="!rounded-full"
             onClick={onClickNext}
           />
         </div>
       </div>
       {/* Slider */}
-      <div className="flex justify-center w-full gap-4 md:gap-6 overflow-x-auto">
-
-      </div>
-
       <Swiper
         ref={refSwipper}
-        className='w-full py-4 select-none'
+        className='w-full py-4 select-none z-10 !overflow-visible'
         slidesPerView="auto"
         // slidesPerView={3.5}
         spaceBetween={25}
@@ -79,9 +75,11 @@ const UserCommentsSection: React.FC<IUserCommentsSectionProps> = ({ className = 
           </SwiperSlide>
         ))}
       </Swiper>
+
+      <div className="absolute w-[calc(100%-80px)] h-[421px] max-md:w-full max-md:left-0 left-[40px] top-[182px] max-md:top-[99px] bg-amber-200 z-[-1]">
+
+      </div>
     </section>
-
-
   )
 }
 

@@ -9,7 +9,7 @@ import WordMapSection from "@/components/landing-sections/world-map-section";
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen items-center">
-      <div className="relative">
+      <div className="relative w-full overflow-hidden">
         <HeroSection />
         <ServicesSection />
         <svg className="max-md:hidden absolute left-0 top-0 z-[-1] w-full h-full fill-amber-100" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">

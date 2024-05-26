@@ -6,15 +6,14 @@ interface IButtonProps {
   style?: "filled" | "outline" | "disabled" | "link" | "danger"
   size?: "s" | "m" | "l" | "xl"
   text?: string
-  icon?: React.ReactNode
-  iconPosition?: "left" | "right"
-  // TODO: both left and right icon positon
+  leftIcon?: StaticImport
+  rightIcon?: StaticImport
   onClick?: () => void
   colors?: { primary?: string, secondary?: string }
   className?: string
 }
 
-const Button: React.FC<IButtonProps> = ({ parentTheme = "light", style = "outline", size = "m", text, icon, iconPosition = "left", onClick, colors, className = "" }) => {
+const Button: React.FC<IButtonProps> = ({ parentTheme = "light", style = "outline", size = "m", text, leftIcon, rightIcon, onClick, colors, className = "" }) => {
   let buttonClassName = "";
   let textClassName = "";
 
@@ -42,10 +41,10 @@ const Button: React.FC<IButtonProps> = ({ parentTheme = "light", style = "outlin
     buttonClassName += " px-3 py-2";
     textClassName += " text-sm";
   } else if (size == "m") {
-    buttonClassName += " px-3 py-3";
+    buttonClassName += " p-3";
     textClassName += " text-base";
   } else if (size == "l") {
-    buttonClassName += " px-3 py-3";
+    buttonClassName += " p-4";
     textClassName += " text-xl";
   } else if (size == "xl") {
     buttonClassName += " px-6 py-5";
@@ -55,18 +54,27 @@ const Button: React.FC<IButtonProps> = ({ parentTheme = "light", style = "outlin
 
   return (
     <button
-      className={`flex justify-center w-fit h-fit text-base rounded-lg ${buttonClassName} ${className}`}
+      className={`flex justify-center items-center w-fit h-fit rounded-lg overflow-hidden ${buttonClassName} ${className}`}
       onClick={onClick}
     >
-      {/* <div className="flex px-4 gap-2"> */}
-      {icon}
+      {leftIcon &&
+        <Image
+          src={leftIcon}
+          alt="left icon"
+        />
+      }
       {
         text &&
-        <div className={`tracking-[0.5px] leading-[24px] whitespace-nowrap ${textClassName}`}>
+        <div className={`tracking-[0.5px] leading-[24px] whitespace-nowrap px-4 ${textClassName}`}>
           {text}
         </div>
       }
-      {/* </div> */}
+      {rightIcon &&
+        <Image
+          src={rightIcon}
+          alt="right icon"
+        />
+      }
     </button >
   )
 }

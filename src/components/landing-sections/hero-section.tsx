@@ -1,12 +1,12 @@
 import Image from "next/image";
 import SectionText from "@/components/section-text";
 import pexelsPhotoByRayPiedra from "/public/images/pexelsPhotoByRayPiedra.png"
-import PlayCircleSvg from "@/assets/vectors/play-circle-svg";
+import play_circle_svg from "/public/vectors/play-circle.svg"
 
 const HeroSection: React.FC = () => {
 
   return (
-    <section className="relative flex flex-col md:flex-row justify-center items-center gap-8 md:gap-10 lg:gap-20 px-4 py-12 md:p-20 w-full">
+    <section className="relative flex flex-col md:flex-row justify-center items-center gap-8 md:gap-10 lg:gap-20 px-4 py-12 md:p-20 w-full overflow-hidden">
       {/* Col 1 */}
       <div className="flex flex-col gap-12">
         <SectionText
@@ -15,7 +15,7 @@ const HeroSection: React.FC = () => {
           text="Sit elit feugiat turpis sed integer integer accumsan turpis. Sed suspendisse nec lorem mauris. Pharetra, eu imperdiet ipsum ultrices amet."
           buttons={[
             { text: "Sign up now", style: "outline", size: "m" },
-            { text: "Watch Demo", style: "link", size: "m", icon: < PlayCircleSvg /> },
+            { text: "Watch Demo", style: "link", size: "m", leftIcon: play_circle_svg },
           ]}
         />
       </div>

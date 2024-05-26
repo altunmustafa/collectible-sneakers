@@ -4,7 +4,7 @@ interface IFooterColProps {
   className?: string
 }
 
-const FooterCol: React.FC<IFooterColProps> = ({ children, className }) => {
+const FooterCol: React.FC<IFooterColProps> = ({ children, className = "" }) => {
 
   return (
     <div className={`flex flex-col w-full ${className}`}>
