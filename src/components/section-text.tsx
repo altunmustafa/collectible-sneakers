@@ -47,8 +47,9 @@ const SectionText: React.FC<ISectionTextProps> = ({ colorTheme = "light", aligme
       {/* Buttons Group */}
       {buttons &&
         <div className="flex gap-4 max-md:justify-center">
-          {buttons.map((button) => (
+          {buttons.map((button, index) => (
             <Button
+              key={index}
               style={button.style}
               size={button.size}
               text={button.text}

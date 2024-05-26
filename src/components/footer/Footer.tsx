@@ -18,11 +18,11 @@ const Footer: React.FC = () => {
     <footer className="flex flex-col justify-center w-full bg-slate-900 px-4 md:px-20 text-white">
       <div className="flex flex-col md:flex-row gap-12 w-full py-12 border-t border-b border-solid border-slate-700">
 
-        {footerNavItems.map((navItem) => (
-          <FooterCol>
+        {footerNavItems.map((navItem, index) => (
+          <FooterCol key={index}>
             <FooterLink text={navItem.text} path={navItem.path} isBold Icon={navItem.icon} showIcon={navItem.showIcon} className="text-white" />
-            {navItem.subItems && navItem.subItems.map((subNavItem) => (
-              <FooterLink text={subNavItem.text} path={subNavItem.path} Icon={subNavItem.icon} showIcon={subNavItem.showIcon} className="text-slate-200" />
+            {navItem.subItems && navItem.subItems.map((subNavItem, index) => (
+              <FooterLink key={index} text={subNavItem.text} path={subNavItem.path} Icon={subNavItem.icon} showIcon={subNavItem.showIcon} className="text-slate-200" />
             ))}
           </FooterCol>
         ))}

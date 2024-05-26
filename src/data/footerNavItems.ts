@@ -20,7 +20,7 @@ const footerNavItems: IFooterNavItem[] = [
     text: "Product",
     path: "#",
     icon: GlobeAltIcon,
-    showIcon: true,
+    showIcon: false,
     subItems: [
       {
         text: "Pricing",
